@@ -1,0 +1,76 @@
+// placeholder helper
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Default: For modern format fonts
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $weight: normal,
+  $style: normal,
+  $asset-pipeline: false
+) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('../fonts/#{$file-path}.woff') format('woff'), url('../fonts/#{$file-path}.woff2') format('woff2');
+  }
+}
+
+// size to one line
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin max-size($max-width, $max-height: $max-width) {
+  max-width: $max-width;
+  max-height: $max-height;
+}
+@mixin min-size($min-width, $min-height: $min-width) {
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+// flex center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// absolute center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// svg (fill, stroke)
+@mixin svg-color($color) {
+  fill: $color;
+  stroke: $color;
+}
+
+// truncate
+@mixin text-truncate($number) {
+  display: -webkit-box !important;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
